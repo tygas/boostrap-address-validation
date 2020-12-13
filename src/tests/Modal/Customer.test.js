@@ -33,7 +33,7 @@ test('Displays success msg on valid customer', async () => {
     target: { value: 'Kaunas' },
   })
   fireEvent.change(getByTestId('street_number'), {
-    target: { value: '5' },
+    target: { value: '15' },
   })
   fireEvent.change(getByTestId('route'), {
     target: { value: 'Asigalio' },

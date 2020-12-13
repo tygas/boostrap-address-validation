@@ -186,7 +186,12 @@ export default function CustomerDialog(props) {
               inputController={inputController}
             />
             {validated ? (
-              <>
+              <Grid
+                container
+                spacing={2}
+                justify="space-around"
+                className={classes.container}
+              >
                 {addressSuggestion && (
                   <>
                     <Typography className={classes.message}>
@@ -203,14 +208,13 @@ export default function CustomerDialog(props) {
                           Address is valid
                         </Alert>
                       )}
-                    </Typography>
-                    <Typography paragraph className={classes.message}>
+                      <br />
                       {addressSuggestion.formatted_address}
                     </Typography>
                     {addressSuggestion.center && (
                       <img
                         src={`https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAILGVlt-SOiL381JT3TQ9dxxoNIUuxrV8&center=${addressSuggestion.center}&zoom=12&size=480x125&maptype=roadmap&sensor=false`}
-                        width="480"
+                        width="80%"
                         height="125"
                         alt="Google"
                         style={{ padding: '8px', borderRadius: '8px' }}
@@ -221,7 +225,7 @@ export default function CustomerDialog(props) {
                     )}
                   </>
                 )}
-              </>
+              </Grid>
             ) : (
               errors &&
               errors.error_message && (

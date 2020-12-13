@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let url = 'https://maps.googleapis.com/maps/api/geocode/json'
+const url = 'https://maps.googleapis.com/maps/api/geocode/json'
 
 export default function getGoogleAddress(address) {
   const params = {
@@ -10,10 +10,11 @@ export default function getGoogleAddress(address) {
   }
 
   // Leave for debugging
-  // if (address === ' Asigalio 15 Kaunas 49519') {
-  //   url = 'https://api.mocki.io/v1/6075da9f/' // valid
-  // } else url = 'https://api.mocki.io/v1/59be3f8c'
-  // return axios.get(url)
+  if (params.key === 'PASTE_API_KEY_HERE') {
+    return address === ' Asigalio 15 Kaunas 49519'
+      ? axios.get('https://api.mocki.io/v1/6075da9f/')
+      : axios.get('https://api.mocki.io/v1/59be3f8c/')
+  }
 
   return axios.get(url, { params })
 }
